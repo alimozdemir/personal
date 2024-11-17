@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "ASP.NET Core: Concatenating JSON endpoints"
 description: "Most commonly faced scenario about API design is you want to serialize a POCO class or a different type of objects to JSON with direct serializer. Then get the serialized value and use it. If you are handling big objects/data/files, then you have to be careful with what you do. Otherwise, it can have devastating impacts on the performance."
 date: '2021-03-06T10:00:00.515Z'

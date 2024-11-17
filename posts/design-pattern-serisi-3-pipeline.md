@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "Design Pattern Serisi 3: Pipeline"
 description: "Temiz ve yalın kod yazmak yazılım dünyasında olmazsa olmaz şeylerin başında geliyor. Bunu sağlamak için bir çok yol var bizde bunlardan birine değineceğiz."
 date: "2019-07-12T13:41:04.561Z"

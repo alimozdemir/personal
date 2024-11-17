@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "ML.NET kullanarak çoklu dil sınıflandırma"
 description: "Bu yazımda Microsoft’un makine öğrenmesi kütüphanesi olan ML.NET’i kullanarak dil sınıflandırma yapacağım. Örnek vermek gerekirse, dökümanları, yazıları vb. şeylerin dillerini tespit edebileceğiz. İşe kendi eğitim ve test verilerimizi oluşturarak başlayacağım."
 date: "2019-01-30T11:36:33.410Z"

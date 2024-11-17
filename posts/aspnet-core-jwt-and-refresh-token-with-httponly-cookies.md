@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "ASP.NET Core: JWT and Refresh Token with HttpOnly Cookies"
 description: "I would like to talk about the SPA client authentication. Most of the blog implementations are stores the token into localStorage, sessionStorage or in-memory storage (redux/vuex/ngrx). It depends on your needs.  For instance, you don't need high security with your In-House applications. For other cases, you need to increase your security. Today, I will try to explain that with my best."
 date: "2020-09-13T17:00:00.515Z"

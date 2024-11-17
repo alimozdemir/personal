@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "Hangfire Docker with Multiple Servers"
 description: "I’ve been using Hangfire for almost 2 years. It’s a wonderful job schedule API with persistent storage. Community have a lot of examples about how to use Hangfire. However, almost all of them use the application (UI) as a hangfire server. Here, I will explain how to use Hangfire with docker and multiple servers. Let’s begin."
 date: "2019-07-19T06:32:49.530Z"

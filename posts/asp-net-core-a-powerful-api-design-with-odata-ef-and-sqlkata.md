@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "ASP.NET Core: A powerful API Design with OData, EF and SQLKata"
 description: "Rather than reinventing the wheel, you may need a fast and reliable solution in a short time span. In this case, your framework should be able to support all your requirements. ASP.NET Core is doing that very well."
 date: "2020-06-09T17:45:46.515Z"

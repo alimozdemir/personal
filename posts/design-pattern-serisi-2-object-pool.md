@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "Design Pattern Serisi 2: Object Pool"
 description: "Merhaba, bu seferki yazımda bir başka design pattern anlatacağım. Projelerimizde sınıfların oluşturulması bazen pahalıya patlayabiliyor. Bellekten gereksiz yer ayırma (allocation) durumunda performans sorunları ortaya çıkabiliyor. Bu tür performans sorunlarını çözmek için sınıfların yeniden oluşturulmasını engellemek bir çözüm olabilir. Bunun için Object Pool Design Pattern bulunmakta. Ayrıca, .NET Framework SQL Connection üzerinde bu Design Pattern kullanılmaktadır."
 date: "2018-09-05T12:01:55.277Z"

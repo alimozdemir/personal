@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: 'SignalR Core: Heartbeat and Redis'
 description: "Realtime applications are hard to design in .NET world, we have SignalR Core which gives us a painless interface for developing such applications. SignalR Core is a very new library, here I will be discussing a problem case which came with the latest versions."
 date: "2019-12-23T09:51:18.869Z"

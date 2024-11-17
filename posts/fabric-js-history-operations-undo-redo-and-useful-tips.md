@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "Fabric.js History Operations (undo, redo) and Useful Tips"
 description: "Hello again, today’s subject is a javascript library called Fabric.js. I have worked with this library a couple of times in the past. However, you have to improvise while using the library features for advanced usages. I needed common features for my projects. Such as, history implementation (redo, undo), clipping the canvas, export image with high resolution and so on. I think this blog post will help other people for required such kind of features."
 date: "2019-08-15T08:25:21.583Z"

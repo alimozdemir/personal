@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "deget/ddown; a downloader cli/api for dotnet"
 description: "Hello everyone, I would like to introduce my first global tool for dotnet core ecosystem. This is one of my side projects that I have completed in my free time. It is a downloader just like ‘wget’ command in unix. It has partitioning, pause and resume features. Also, it is not only a CLI tool, but has a nuget package that you can include to your projects for downloading files."
 date: "2019-01-14T09:10:19.332Z"

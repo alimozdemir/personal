@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "Design Pattern Serisi 1: Singleton"
 description: "Herkese merhaba, öncelikle neden başlıkta ingilizce terimler kullandığıma değinmek istiyorum. Yazılım dünyasında ağırlıklı dilin ingilizce olduğu ve bu tür terimlerin türkçe karşılığı bana çok anlamlı gelmediği için bu şekilde başlık atma gereği duydum. Design Pattern için Tasarım Deseni çevirisi yapılabilir. Belki TDK buna farklı bir isim verirse daha güzel olabilir ancak ben yine de bu tür ünlü terimleri ingilizce bırakarak makale serime devam etmek istiyorum."
 date: "2018-09-03T06:56:15.319Z"

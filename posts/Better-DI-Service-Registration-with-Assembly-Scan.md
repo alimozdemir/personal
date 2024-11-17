@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "Better DI Service Registration with Assembly Scan"
 description: "Today, I will talk about a better way to register services for Microsoft’s DI container. Let’s have a look at the standard way of service registration."
 date: "2020-05-30T19:16:17.609Z"

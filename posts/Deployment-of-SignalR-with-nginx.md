@@ -1,4 +1,5 @@
 ---
+layout: doc
 title: "Deployment of SignalR with nginx"
 description:  'WebSocket does not working with keep-alive. In our project, SignalR Hub is mapped to “/api/chat”. So, we have to add a new location and set the connection header as “upgrade”'
 date: "2017-12-19T21:52:17.860Z"
