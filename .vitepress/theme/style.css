@@ -1,0 +1,25 @@
+
+.VPNav .container .content {
+  @apply grow-0;
+
+  .content-body {
+    @apply flex gap-x-8;
+  }
+}
+
+.DocSearch-Button-Container {
+  @apply w-40;
+}
+
+.VPNavBarTitle {
+  @apply w-80;
+}
+
+.VPNavBarTitle a {
+  @apply w-full;
+}
+
+.VPNavBarTitle span:not([class]) {
+  /* styles here */
+  @apply hidden;
+}
