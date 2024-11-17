@@ -6,9 +6,9 @@ import Article from './Article.vue';
 import { useData } from 'vitepress';
 import { VPButton } from 'vitepress/theme';
 
-const { params } = useData();
+const { params, site } = useData();
 const pageNumber = computed(() => params.value?.number ? parseInt(params.value.number) : 1);
-const pageCount = 1;
+const pageCount = site.value.contentProps?.articlePerPage ?? 5;
 const { paginatedItems, nextPage, prevPage, totalPages } = usePagination(posts, pageNumber.value, pageCount);
 
 const pageUrl = (page: number) => {

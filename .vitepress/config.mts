@@ -1,9 +1,13 @@
 import { defineConfig } from 'vitepress'
+import { NUMBER_OF_ARTICLES_PER_PAGE } from '../consts'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Alim Özdemir",
   description: "Alim Özdemir Personal Website",
+  contentProps: {
+    articlePerPage: NUMBER_OF_ARTICLES_PER_PAGE
+  },
   themeConfig: {
     socialLinks: [{
       icon: 'github',

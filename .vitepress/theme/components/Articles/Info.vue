@@ -10,7 +10,7 @@ const date = frontmatter.value?.date ? formatDate(frontmatter.value.date) : unde
 </script>
 <template>
     <div class="info-box flex flex-row-reverse items-center justify-between mb-4 xl:flex-col xl:items-start xl:pb-4">
-        <div class="py-4 flex" v-if="categories">
+        <div class="py-4 flex gap-x-2" v-if="categories">
             <span v-for="item in categories" v-text="item" class="text-sm rounded border p-2"></span>
         </div>
         <div>
