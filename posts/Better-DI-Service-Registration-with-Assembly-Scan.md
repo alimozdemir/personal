@@ -7,6 +7,8 @@ keywords: "dotnet,dependency injection,services"
 thumbnail: '/img/1__e7BcghEYOwey5qOKNBcGaA.jpeg'
 ---
 
+# Better DI Service Registration with Assembly Scan
+
 Today, I will talk about a better way to register services for Microsoft’s DI container. Let’s have a look at the standard way of service registration.
 
 ```csharp
@@ -34,7 +36,7 @@ dotnet add package Scrutor
 
 This package allows you to scan assemblies and register the services with implementations.
 
-#### Solution 1
+## Solution 1
 
 We will create three different empty interfaces which mark the implementations for lifetime registration.
 
@@ -114,7 +116,7 @@ public void ConfigureServices(IServiceCollection services)
 
 The following code will scan the current assembly with respect to given lifetime interfaces and register them into DI container.
 
-#### Solution 2
+## Solution 2
 
 We can create attributes just like interfaces and use them similar to the first solution.
 
@@ -197,7 +199,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Now we can use these attributes in the service implementations.
 
-#### Solution 3
+## Solution 3
 
 So far, we handled the lifetimes separately. Let’s create a common attribute which contains a lifetime value and then decorate services with that attribute.
 
@@ -288,7 +290,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Run the examples
+## Run the examples
 
 You can switch the startup settings and run the following controller.
 
@@ -330,11 +332,11 @@ public class ServiceController : ControllerBase
 
 Last solution is my favorite. It uses the ServiceLifetime as a parameter and you don’t need to repeat yourself for every single lifetime.
 
-### Assembly
+## Assembly
 
 Examples above use `FromCallingAssembly` at the beginning of each scan, which would register services only in that specific ASP.NET Core Application. If you have separated your services from Application layer into a class library, you might want to use an entry point for that class library. For example, you can create a dummy class `ServiceEntryPoint` in that library and call `FromAssemblyOf<ServiceEntryPoint>()` then continue applying the rest of the settings.
 
-### Bonus
+## Bonus
 
 In order to make things more easier, I would like to draw your attention to the power of reflection. Let’s say you have services that ends with postfix e.g `CountryBusinessService` , `OrderBusinessService` , `XBusinessService` . You can register them however you want, such as the example below.
 
@@ -353,7 +355,7 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 
-#### \[ServiceProvider\]
+## \[ServiceProvider\]
 
 Scrutor has an attribute which works similar to the third solution. However, I could not find the documentation about how to use it. Therefore, I will not include it here.
 

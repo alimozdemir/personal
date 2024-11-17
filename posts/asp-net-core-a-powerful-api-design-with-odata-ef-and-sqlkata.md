@@ -7,13 +7,15 @@ keywords: "aspnetcore,odata,entityframework,dotnet,sqlkata"
 thumbnail: '/img/1__qHnlXoKJKnQHTj6QcoN1nw.jpeg'
 ---
 
+# ASP.NET Core: A powerful API Design with OData, EF and SQLKata
+
 Rather than reinventing the wheel, you may need a fast and reliable solution in a short time span. In this case, your framework should be able to support all your requirements. ASP.NET Core is doing that very well.
-<!--more-->
+
 > I will cover everything under REST API design.
 
-### API Design
+## API Design
 
-#### Select
+### Select
 
 Let’s first speak about what we know about the performance of an API design. Assume that we have entities over 1M+ rows in a database system. You can’t show that much data directly with an UI, you have the split into pages. In other words, we can say `pagination`. I may apply a “skip and take” methodology and show paged data.
 
@@ -27,7 +29,7 @@ public IEnumerable<Entity> Get(int skip = 0, int take = 10)
 
 This would be enough for basics. The things are starting to get more complex when you need more functionality. The given example could expanded with search, order, select and group functions, etc. So you have to implement each one of them and consider all possibilities. It would be a waste of time and increases the likelihood of errors. **OData** answers your call here. It presents a good API support for such needs and works with **Entity Framework** for query builder.
 
-#### Patch/Put/Post/Delete
+### Patch/Put/Post/Delete
 
 REST & Entity Framework & OData can handle these actions painlessly.
 
@@ -69,7 +71,7 @@ public async Task<IActionResult> Delete([FromODataUri] int key)
 
 I didn’t include the validations. You can see a full example from [Microsoft’s site](https://docs.microsoft.com/tr-tr/aspnet/web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint). So far so good, we handled CRUD operations and exposed an API.
 
-### Projection
+## Projection
 
 The whole scenario is based on an entity on a database system which means it is can be a table, a document, etc. However, you may want to use OData features with a projection. In other words, you have a View on SQL that joins multiple tables and collects bunch of data.
 
@@ -77,7 +79,7 @@ The whole scenario is based on an entity on a database system which means it is 
 
 Therefore, CRUD operations couldn’t work and you have to handle the operations manually with respect to the columns.
 
-#### Scenario
+### Scenario
 
 Assume that, you have a song database. It has a restriction system for countries. And, you want to design a webpage that allows you to control the songs status over the countries with a checkbox.
 
@@ -94,7 +96,7 @@ AS
 
 The structure is completed for the selection of the songs. Assume that, we are using an advanced data grid which supports OData such as **DevExtreme**, **Telerik,** etc. The user want to change the status of a song on all countries. And, the grid shows the songs with a checkbox. Hereafter, you have to handle the editing operations manually. Since Entity Framework does not support bulk changes, we need to use an extension package like [EntityFramework Plus](https://entityframework-plus.net).
 
-#### Patch
+### Patch
 
 The patch method provides a `Delta<T>` object which stores the changes. We can handle the request;
 
@@ -129,9 +131,9 @@ AND A.[CountryId] = B.[CountryId]
 
 I don’t think this one is a good update statement. The join statement is not necessary because it updates all rows with respect to an ID. My computer runs it in around **1.5** seconds. It works but it’s slow. In a future they could fix it. I will not go into Entity Framework Plus package details.
 
-#### SqlKata
+## SqlKata
 
-{{< figure src="/img/1__qHnlXoKJKnQHTj6QcoN1nw.jpeg" class="image-center" alt="The blog picture" >}}
+<img src="/img/1__qHnlXoKJKnQHTj6QcoN1nw.jpeg" class="image-center" alt="The blog picture" />
 
 Since, the selection part is customized I would like to go with my own queries for customization and performance matters. SqlKata is a good query builder that allows you to compile your queries according to different database systems.
 
@@ -166,7 +168,7 @@ UPDATE [Country_Songs] SET [Status] = @p0 WHERE [SongId] = @p1
 
 This was what I expected. My computer runs the patch action between **30ms**~**100ms**.
 
-### Conclusion
+## Conclusion
 
 OData presents powerful features depending on your needs. The standard procedure is not always available for you and you have to improvise for each case. As a result, you have a **powerful**, **fast** and **RESTful API** concept.
 

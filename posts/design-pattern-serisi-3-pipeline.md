@@ -5,12 +5,15 @@ date: "2019-07-12T13:41:04.561Z"
 categories: "Design Pattern"
 keywords: "dotnet,design patterns,tasarim kalibi,pipeline"
 thumbnail: "/img/1____rmi8y7yxQSL8dVXnVA__4A.png"
-
 ---
+
+# Design Pattern Serisi 3: Pipeline
 
 Temiz ve yalın kod yazmak yazılım dünyasında olmazsa olmaz şeylerin başında geliyor. Bunu sağlamak için bir çok yol var bizde bunlardan birine değineceğiz.
 
 Bu yaklaşım birden fazla yerde kullanılıyor, örneğin ASP.NET Core üzerinde http istekleri bir pipeline (veri hattı) ile işlenmekte ve bu işlenme sırasında aralara iyi bir şekilde müdahale edilebilmektedir. Ayrıca, ML.NET’de bu yaklaşım üzerine kurulmuştur. Benim şahsi kanaatim, bu yapıyı birden fazla şekilde hayata geçirebilirsiniz, o yüzden doğaçlama yapmaktan çekinmeyin. Fazla sözü uzatmadan örneğimize geçelim.
+
+## Tasarım
 
 Benim yapacağım örnekte yapı 3 farklı bölümden oluşmaktadır. Bunlardan ilki işlerin türeyeceği interface, işlerin daha kolay anlaşılmasını ve unit test yazarken bize kolaylık sağlayacak `IPipeObject`.
 
@@ -155,7 +158,7 @@ Sonuç
 
 ![](/img/1__eePVFdv5U5OL9DB769FLWg.png)
 
-#### Tests
+## Tests
 
 Bu kadar gelmişken unit test yazmadan olmaz. Hemen xUnit üzerinden tüm sınıflarımız için testlerimizi yazıyoruz. Burada sadece önemli testleri göstereceğim.
 
@@ -266,7 +269,7 @@ public void IgnoreWhiteSpacesPipe_Input_VerifyNoNextInvoke()
 }
 ```
 
-#### Sonuç
+## Sonuç
 
 Bu yapı ile birlikte daha temiz ve düzenli kod yazabilmenin bir yolunu göstermiş olduk. Yukarıdaki kodların proje haline aşağıdan erişebilirsiniz.
 

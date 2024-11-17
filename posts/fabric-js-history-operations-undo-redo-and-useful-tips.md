@@ -7,9 +7,11 @@ keywords: "javascript,fabricjs"
 thumbnail: '/img/1__yjsrwvoZmyY7RmRBxDt7Mg.png'
 ---
 
+# Fabric.js History Operations (undo, redo) and Useful Tips
+
 Hello again, today’s subject is a javascript library called Fabric.js. I have worked with this library a couple of times in the past. However, you have to improvise while using the library features for advanced usages. I needed common features for my projects. Such as, history implementation (redo, undo), clipping the canvas, export image with high resolution and so on. I think this blog post will help other people for required such kind of features.
 
-#### History
+## History
 
 First of all, most required features are undo and redo actions. In fabric.js almost every action is catched with `object:modified`, `object:added` and `object:removed`. Basically, we are keeping the state of the canvas on a stack and redraw the state each time.
 
@@ -57,7 +59,7 @@ fabric.Canvas.prototype.undo = function () {
 
 `undo` function applies the rollback operation on the state popped from the stack. However, during the canvas re-rendering events from the old state will also trigger. These events should not be fired, therefore `historyProcessing` variable will block the new states from getting pushed into the stack.
 
-#### npm package
+## npm package
 
 I have created a npm package in order to make it easier to apply the processes we discussed above. Additionally, it includes redo action. You can install the package using with
 
@@ -85,7 +87,7 @@ canvas.undo();
 canvas.redo();
 ```
 
-#### Download the canvas with higher resolution
+### Download the canvas with higher resolution
 
 Second problem I have faced, my canvas had lower resolution than I needed, and I wanted to download the high resolution version of it. There is a built-in solution for this. Basically, you can multiply the canvas while downloading by
 
@@ -95,7 +97,7 @@ canvas.toDataUrl({ multiplier: 3 });
 
 Then you can download the 3x canvas.
 
-#### Clip canvas
+## Clip canvas
 
 In most cases, I wanted to clip objects with different kind of shapes. HTML5 canvas has a property called `globalCompositeOperation`.
 
@@ -143,17 +145,16 @@ The circle defines the outside border of the rectangle and second rectangle will
 You can see an example below:
 
 
-{{< rawhtml >}}
 <iframe width="100%" height="300" src="//jsfiddle.net/almozdmr/yjmx6751/embedded/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-{{< /rawhtml >}}
+
 https://jsfiddle.net/almozdmr/yjmx6751/
 
 
-#### Conclusion
+## Conclusion
 
 In this blog post, we learned how to use `globalCompositeOperation` with fabric.js’s objects. Additionally, I have published my first npm package under name [fabric-history](https://www.npmjs.com/package/fabric-history).
 
-### UPDATE
+## UPDATE
 
 I have updated the fabric-history package. `historyInit`function is not necessary anymore. You just import the package and use `undo` , `redo` functions.
 
@@ -162,7 +163,7 @@ I have updated the fabric-history package. `historyInit`function is not necessar
 [**lyzerk/fabric-history**  
 _Basic undo and redo prototype implementation on Fabric.js npm i fabric-history Node projects Or html Initialization of…_github.com](https://github.com/lyzerk/fabric-history "https://github.com/lyzerk/fabric-history")[](https://github.com/lyzerk/fabric-history)
 
-#### Resources
+## Resources
 
 [**Home**  
 _This repo uses Jekyll to serve pages, which can be installed here. Once installed just run the command jekyll serve in…_fabricjs.com](http://fabricjs.com/docs/ "http://fabricjs.com/docs/")[](http://fabricjs.com/docs/)

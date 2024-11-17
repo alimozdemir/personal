@@ -7,11 +7,12 @@ keywords: ["dotnet", "hangfire", "docker", "aspnetcore", "worker"]
 thumbnail: "/img/1__GTrmN639KG5pCD8WmfU6Cw.png"
 ---
 
+# Hangfire Docker with Multiple Servers
+
 I’ve been using Hangfire for almost 2 years. It’s a wonderful job schedule API with persistent storage. Community have a lot of examples about how to use Hangfire. However, almost all of them use the application (UI) as a hangfire server. Here, I will explain how to use Hangfire with docker and multiple servers. Let’s begin.
 
-<!--more-->
 
-#### UI
+## UI
 
 First, let’s create an API. I will show my example on ASP.NET Core 2.2 with PostgreSQL. Open your terminal.
 
@@ -79,7 +80,7 @@ public class AllowAllConnectionsFilter : IDashboardAuthorizationFilter
 
 As I mentioned in the code, do not use this code in the production directly. You have to create your own scenario (e.g. only admin roles can reach hangfire.). Also, we have disabled anti forgery token for now, the security is not our first concern here. UI part is done.
 
-#### Background Server
+## Background Server
 
 Secondly, we need a separate background server project. Create this project besides `Hangfire.UI` project.
 
@@ -130,7 +131,7 @@ hang.server1\_1  | Hosting environment: Production
 hang.server1\_1  | Content root path: /app/
 ```
 
-#### Jobs
+## Jobs
 
 The _UI_ and _Server_ projects must share the same code base for the Jobs. Therefore, I will create a new library project beside those projects.
 
@@ -188,7 +189,7 @@ The above code will enqueue the example job with random interval when anyone hit
 
 We are done with the codebase. We have separated the Hangfire Background Server and Dashboard, and created a common class library for jobs. What we have to do in the next part is, dockerize the projects and create environment with those containers.
 
-#### Docker
+## Docker
 
 Since, the both UI and Server projects are .NET Core 2.2 projects. The `Dockerfile` should be almost same. (I tried my best while creating these dockerfiles). `Hangfire.UI` ‘s Dockerfile is shown below. Open a new file named `Dockerfile` and copy following commands into it.
 
@@ -229,7 +230,7 @@ Only difference between _UI_ and _Server_ is `EXPOSE 80` command on the file. Th
 
 Since we obtained multiple dockerized applications, we are almost done. Next, run the images using docker-compose command.
 
-#### Docker-Compose
+## Docker-Compose
 
 Docker-compose creates an environment which run multiple images and enables them to communicate with each other. Go to main folder and create `docker-compose.yml` file and copy following content into it.
 
@@ -317,7 +318,7 @@ As you can see here, there are two servers running. Let’s try the job scheduli
 
 The image shows that jobs are distributed to the servers. Remember, we have set the worker count to 1 above.
 
-#### Conclusion
+## Conclusion
 
 In this post, we have successfully showed how to run multiple Hangfire servers using docker images. We have separated the UI and Server part of the Hangfire, also dockerized those applications. To make it clear, you should distribute your Hangfire servers with kubernetes or service fabric. It is important to use advantages of the distributing jobs and dockerizing. See you in next post.
 
@@ -326,7 +327,7 @@ You can get the source files below.
 [**lyzerk/Hangfire.Docker**  
 _An experimental hangfire docker project with multiple servers (workers) - lyzerk/Hangfire.Docker_github.com](https://github.com/lyzerk/Hangfire.Docker "https://github.com/lyzerk/Hangfire.Docker")[](https://github.com/lyzerk/Hangfire.Docker)
 
-#### References
+## References
 
 [**Documentation - Hangfire Documentation**  
 _Hangfire keeps background jobs and other information that relates to the processing inside a persistent storage…_docs.hangfire.io](https://docs.hangfire.io/en/latest/ "https://docs.hangfire.io/en/latest/")[](https://docs.hangfire.io/en/latest/)

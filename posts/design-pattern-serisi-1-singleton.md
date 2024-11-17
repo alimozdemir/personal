@@ -7,11 +7,13 @@ keywords: "dotnet,design patterns,tasarim kalibi,singleton"
 thumbnail: "/img/1__b1Z3NB5cxQL5preMW4nCiw.png"
 ---
 
+# Design Pattern Serisi 1: Singleton
+
 Herkese merhaba, öncelikle neden başlıkta ingilizce terimler kullandığıma değinmek istiyorum. Yazılım dünyasında ağırlıklı dilin ingilizce olduğu ve bu tür terimlerin türkçe karşılığı bana çok anlamlı gelmediği için bu şekilde başlık atma gereği duydum. Design Pattern için Tasarım Deseni çevirisi yapılabilir. Belki TDK buna farklı bir isim verirse daha güzel olabilir ancak ben yine de bu tür ünlü terimleri ingilizce bırakarak makale serime devam etmek istiyorum.
 
 Makale serimi C# üzerinde uygulayacağım. Ve .NET Core platformu üzerinden göstereceğim. Burada gerçekleştirilmiş tüm kodlara bu linkten [Github](https://github.com/lyzerk/medium/tree/master/DesignPatternSingleton) ulaşabilirsiniz.
 
-### Singleton Pattern
+## Singleton Pattern
 
 ![Singleton Pattern Class Diagram](/img/1__b1Z3NB5cxQL5preMW4nCiw.png)
 Singleton Pattern Class Diagram
@@ -112,7 +114,7 @@ Bu çözüm ile birlikte ilk kullanım sırasında, gerektiğinde sınıfı olu�
 
 Yukarıdaki kodların tamamlanmış haline [buradan](https://github.com/lyzerk/medium/tree/master/DesignPatternSingleton) erişebilirsiniz. Bir sonraki yazıda görüşmek üzere.
 
-#### Kaynaklar
+## Kaynaklar
 
 [**Design Patterns Singleton Pattern**  
 _Design Patterns Singleton Pattern - Learning java design patterns in simple and easy steps : A beginner's tutorial…_www.tutorialspoint.com](https://www.tutorialspoint.com/design_pattern/singleton_pattern.htm "https://www.tutorialspoint.com/design_pattern/singleton_pattern.htm")[](https://www.tutorialspoint.com/design_pattern/singleton_pattern.htm)

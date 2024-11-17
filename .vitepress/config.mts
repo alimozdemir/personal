@@ -5,6 +5,7 @@ import { NUMBER_OF_ARTICLES_PER_PAGE } from '../consts'
 export default defineConfig({
   title: "Alim Özdemir",
   description: "Alim Özdemir Personal Website",
+  cleanUrls: true,
   contentProps: {
     articlePerPage: NUMBER_OF_ARTICLES_PER_PAGE
   },

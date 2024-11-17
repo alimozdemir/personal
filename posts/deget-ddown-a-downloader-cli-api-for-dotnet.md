@@ -7,19 +7,22 @@ keywords: "dotnet,tool,downloader,wget"
 thumbnail: "/img/1__uCwhJpWZUQVkkXTvVr__m2A.png"
 ---
 
+# deget/ddown; a downloader cli/api for dotnet
 
 ![The blog image](/img/1__uCwhJpWZUQVkkXTvVr__m2A.png)
 
 Hello everyone, I would like to introduce my first global tool for dotnet core ecosystem. This is one of my side projects that I have completed in my free time. It is a downloader just like ‘wget’ command in unix. It has partitioning, pause and resume features. Also, it is not only a CLI tool, but has a nuget package that you can include to your projects for downloading files.
 
-<!--more-->
 Install command
-```
+
+```shell
 dotnet tool install -g deget  
 dotnet add package DDown
+```
 
 Example CLI command
 
+```shell
 deget https://github.com/OpenShot/openshot-qt/releases/download/v2.4.1/OpenShot-v2.4.1-x86\_64.dmg
 ```
 
@@ -31,7 +34,7 @@ Let’s see results.
 
 Here is an example run command with four partitions.
 
-```
+```shell
 deget [https://github.com/OpenShot/openshot-qt/releases/download/v2.4.1/OpenShot-v2.4.1-x86\_64.dmg](https://github.com/OpenShot/openshot-qt/releases/download/v2.4.1/OpenShot-v2.4.1-x86_64.dmg) -p 4
 ```
 
@@ -40,7 +43,7 @@ deget example output
 
 I think, one of the most useful thing is that CLI downloads the file into current folder in which the command runs. But, if you want to change the download location you can just use -o flag. Also, if you want to download the file into user’s downloads folder you can just use -d flag. For more options,
 
-```
+```shell
 \-p, — partition (Default: 0) Set partition count. Default zero means system’s processor count
 
 \-o, — output Default value is current folder that command runs.

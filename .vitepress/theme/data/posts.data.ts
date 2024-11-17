@@ -18,6 +18,9 @@ export { data }
 
 export default createContentLoader('posts/*.md', {
   excerpt: true,
+  globOptions: {
+    followSymbolicLinks: true,
+  },
   transform(raw): Post[] {
     return raw
       .map(({ url, frontmatter, excerpt }) => ({

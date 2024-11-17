@@ -7,35 +7,39 @@ keywords: "dotnet,mlnet,naive bayes,classification,sınıflandırma"
 thumbnail: "/img/1__f3sXaYpdqlhYKPlED0J6mg.jpeg"
 ---
 
+# ML.NET kullanarak çoklu dil sınıflandırma
+
 Herkese yeniden merhaba,
 
 Bu yazımda Microsoft’un makine öğrenmesi kütüphanesi olan ML.NET’i kullanarak dil sınıflandırma yapacağım. Örnek vermek gerekirse, dökümanları, yazıları vb. şeylerin dillerini tespit edebileceğiz. İşe kendi eğitim ve test verilerimizi oluşturarak başlayacağım.
 
-<!--more-->
-
-### Veri kümesinin hazırlanması
+## Veri kümesinin hazırlanması
 
 Veri kümemizi oluşturmak için Wikipedia sayfalarını kullandım. Bu blog yazısı için python üzerinde [bir script](https://github.com/lyzerk/medium/blob/master/MLNet/MulticlassLanguageClassifier/Data/main.py) dosyası hazırladım. Python üzerinde bulunan [wikipedia kütüphanesi](https://pypi.org/project/wikipedia/) ile istenilen sayfaların içeriğini çekerek bunları test ve eğitim kümesi olarak ayırıyorum. Ben bu makale için üç dil seçtim; Türkçe, İngilizce ve İspanyolca. Bu her üç dil için neredeyse aynı oranda başlık seçmeye çalıştım. Bu script dosyası ile önceden belirlemiş olduğum sayfaların içeriklerini alıp python [nltk](http://www.nltk.org) (natural language toolkit) kütüphanesini kullanarak cümlelere bölüyorum. Ve ardından `1/4` oranında test/eğitim verilerimi ayırıyorum. Eğer veri kümesini genişletmek istersek script dosyamıza yeni makaleler ekleyebiliriz. Örneğin;
 
+```csharp
 titles.append((“Mustafa Kemal Atatürk”, “tr”))  
 titles.append(("Pablo Picasso", "es"))  
 titles.append(("Abraham Lincoln", "en"))
+```
 
 Ardından `$ python main.py`komutu ile çalıştırdığımızda train.txt ve test.txt dosyasımızı oluşturacak. Oluşan dosyaların formatı aşağıdaki gibidir
 
+```
 tr Cumhuriyet Dönemi Türkiye Ansiklopedisi.  
 es Picasso finalizó el poema en seis actos...  
 en Native Americans were also often...
+```
 
 Ayıraçı `\t` karakteri olarak belirledim.
 
 ![ML.NET](/img/1__f3sXaYpdqlhYKPlED0J6mg.jpeg)
 
-### Modelin hazırlanması
+## Modelin hazırlanması
 
 Sıra modelimizi hazırlayamaya geldi. Ben bu makaleyi ML.NET 0.5.0 versiyonu ile hazırlamaya başlamıştım ancak 0.6.0 versiyonunda eski API’ların hepsi Legacy namespace’inin altına taşınarak yeni yapıya geçince, ben de bu yeni halinin oturmasını bekledim ve sonunda 0.9.0 versiyonu ile birlikte kodumu yeniden düzenleyerek makaleme devam edebildim.
 
-#### Pipeline ve Model
+### Pipeline ve Model
 
 Hazırlamış olduğumuz verileri ML.NET API tarafından tanıtmamız gerekiyor. ML.NET temel olarak bir ana sınıf ile ilerliyor o da `MLContext` sınıfı, bu sınıf ile birlikte verilerimizi tanımlıyoruz.
 
@@ -119,7 +123,7 @@ Veee sonuç beklediğimiz gibi çıkıyor !
 
 Predicted language es
 
-#### Modelimiz ne kadar başarılı oldu ?
+### Modelimiz ne kadar başarılı oldu ?
 
 Sıra modelimizi değerlendirme sürecine geldi. Veri kümesinin hazırlanması kısmında gerçek verinin 1/4'ünü bu aşama için ayırmıştık.
 
@@ -161,14 +165,14 @@ Last 53 tweets from 56 are in 'tr' class
 
 Sonuçlar istediğimiz türde çıkıyor, büyük bir oranda doğru tahmin edilmiş. [tweet.txt](https://github.com/lyzerk/medium/blob/master/MLNet/MulticlassLanguageClassifier/CSharp/tweet.txt) dosyasından benim makaleyi yazarken ki sonuçlarıma bakabiliriz. Dosyayı incelediğimizde en çok fark İngilizce olanda var, bakıldığında ispanyolca tweetler atıldığını görebiliyoruz. Ayrıca bir kaç kelimeyi de tanıyamadığını gözlemleyebiliyoruz. Bunun için eğitim havuzumuzu genişletmemizde fayda var.
 
-#### Sonuç
+## Sonuç
 
 Bu yöntem ile metinleri belirli özniteliklere göre sınıflandırabilirsiniz. Son olarak bu makaledeki kaynak koda aşağıdan ulaşabilirsiniz.
 
 [**lyzerk/medium**  
 _Medium's story work repository. Contribute to lyzerk/medium development by creating an account on GitHub._github.com](https://github.com/lyzerk/medium/tree/master/MLNet/MulticlassLanguageClassifier "https://github.com/lyzerk/medium/tree/master/MLNet/MulticlassLanguageClassifier")[](https://github.com/lyzerk/medium/tree/master/MLNet/MulticlassLanguageClassifier)
 
-#### Kaynaklar
+## Kaynaklar
 
 [http://www.diva-portal.org/smash/get/diva2:839705/FULLTEXT01.pdf](http://www.diva-portal.org/smash/get/diva2:839705/FULLTEXT01.pdf)
 

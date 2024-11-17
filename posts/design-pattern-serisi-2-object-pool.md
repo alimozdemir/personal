@@ -7,6 +7,8 @@ keywords: "dotnet,design patterns,tasarim kalibi,object pool"
 thumbnail: "/img/1__odCuMsqO33z35l6yN0aURw.png"
 ---
 
+# Design Pattern Serisi 2: Object Pool
+
 Merhaba, bu seferki yazımda bir başka design pattern anlatacağım. Projelerimizde sınıfların oluşturulması bazen pahalıya patlayabiliyor. Bellekten gereksiz yer ayırma (allocation) durumunda performans sorunları ortaya çıkabiliyor. Bu tür performans sorunlarını çözmek için sınıfların yeniden oluşturulmasını engellemek bir çözüm olabilir. Bunun için Object Pool Design Pattern bulunmakta. Ayrıca, .NET Framework SQL Connection üzerinde bu Design Pattern kullanılmaktadır.
 
 
@@ -16,7 +18,7 @@ Serinin bir önceki yazısında anlattığım Singleton Pattern’i burada kulla
 
 Öncelikle yapımızın UML Class Diagram halini göstermek istiyorum. Buradaki amacımız Client sınıfına doğrudan erişimi kapatıp, bu sınıfa ait tek elden türetilmiş bir Client sınıfı elde etmek istiyoruz. Olayın amacını daha detaylı anlatmak gerekirse, `AcquireObject()` metotu ile oluşturulmasını beklediğimiz objenin oluşturulmasını yada bize hazırda olan objeyi vermesini bekliyoruz. Burada bir istisna bulunmakta, eğer havuz boş ise ve oluşturulması gereken obje sayısı sınıra ulaşılmış ise havuzdan null pointer dönmektedir. Ancak bu kısım için Exception atılması da sağlanabilir. `ReleaseObject()` metotu ile kullanmış olduğumuz objeyi geri iade ediyoruz. Burada dikkat edilmesi gereken en önemli nokta alınan objenin kullanıldıktan sonra havuza geri verilmesi, eğer geri verilmezse havuzda eksik objeler bulunacak. Ve sistem eksik bir şekilde çalışmasına devam edecek. Eğer havuzun limiti size yetmiyorsa `IncreaseSize()` metotu ile havuzu büyütebiliriz. Temel olarak ulaşmak istediğimiz yapı bu, artık bu diyagramı koda dökebiliriz.
 
-#### Gerçekleme (Implementation)
+## Gerçekleme (Implementation)
 
 Önceki makalede yaptığım gibi burada da C# dilinde devam edip .NET Core üzerinden gerçekleyeceğiz.
 
@@ -99,9 +101,9 @@ public class ClientPool
 }
 ```
 
-Sıra geldi ana sınıfımıza, öncelikle sınıfımız thread-safe Singleton Pattern’i sağlamaktadır. Bu sayede proje üzerinde sadece tek bir ClientPool sınıfı kullanabilir halde olacağız. Sınıfımızda maksimum üretilebilecek Client sayısını ayarlamamız için `_currentSize` değişkeni bulunmaktadır. Görüldüğü üzere havuzun başlangıç boyutunu 5 olarak belirledim ancak tabii ki bu değişebilir. Ayrıca, sınıf tamamen thread-safe olarak kodlanmıştır. Bunu sağlamak için [ConcurrentBag<T>](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentbag-1?view=netframework-4.7.2) adlı .NET sınıfı ile birlikte AcquireObject ve IncreaseSize metotlarını lock kullanarak thread-safe yapmış bulunuyoruz.
+Sıra geldi ana sınıfımıza, öncelikle sınıfımız thread-safe Singleton Pattern’i sağlamaktadır. Bu sayede proje üzerinde sadece tek bir ClientPool sınıfı kullanabilir halde olacağız. Sınıfımızda maksimum üretilebilecek Client sayısını ayarlamamız için `_currentSize` değişkeni bulunmaktadır. Görüldüğü üzere havuzun başlangıç boyutunu 5 olarak belirledim ancak tabii ki bu değişebilir. Ayrıca, sınıf tamamen thread-safe olarak kodlanmıştır. Bunu sağlamak için [ConcurrentBag\<T\>](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentbag-1?view=netframework-4.7.2) adlı .NET sınıfı ile birlikte AcquireObject ve IncreaseSize metotlarını lock kullanarak thread-safe yapmış bulunuyoruz.
 
-AcquireObject metotunu anlatarak devam edeceğim, öncelikle \_bag listemizden obje almaya çalışıyoruz `_bag.TryTake(out Client item)` kodu ile aldığımız objenin durumunu kontrol ediyoruz eğer obje doğru ise objemizi dönderiyoruz eğer obje yok ise havuzun durumuna bakarak yeni bir obje oluşturuyoruz yada null pointer dönderiyoruz.
+AcquireObject metotunu anlatarak devam edeceğim, öncelikle bag listemizden obje almaya çalışıyoruz `_bag.TryTake(out Client item)` kodu ile aldığımız objenin durumunu kontrol ediyoruz eğer obje doğru ise objemizi dönderiyoruz eğer obje yok ise havuzun durumuna bakarak yeni bir obje oluşturuyoruz yada null pointer dönderiyoruz.
 
 ReleaseObject metotu ile de almış olduğumuz objeleri sisteme geri iade ederek yeniden kullanıma sunuyoruz. Geri bırakılmadığı taktirde, kaynakların doğru kullanımı gerçekleşemeyecektir.
 
@@ -169,7 +171,7 @@ Connecting to something with RequestClient...
 Edindiğimiz sınıfı geri veriyoruz.  
 Listedeki tüm Client sınıflarını geri bırakıyoruz.
 
-#### Sonuç
+## Sonuç
 
 Object Pool Design Pattern’ı gerçekledik. Bu gerçekleme sırasında hazırlamış olduğunuz Client ve RequestClient sınıflarını sadece bulunduğu DLL üzerinde üretilmesini sağladık. Bu yaklaşım ile RequestClient sınıfımızı kısıtlayarak özelleştirmelere kapattık. Ayrıca, ClientPool sınıfının tüm metotlarını thread-safe yaparak daha tutarlı bir yapı elde ettik.
 
@@ -177,7 +179,7 @@ Değinmek istediğim bir başka nokta ise, bu gerçeklemede havuza boyut verdik 
 
 Kaynak kodlarına [buradan](https://github.com/lyzerk/medium/tree/master/DesignPatternObjectPool) ulaşabilirsiniz. Bir sonraki yazıda görüşmek üzere.
 
-#### Kaynaklar
+## Kaynaklar
 
 [**Object pool pattern - Wikipedia**  
 _The object pool design pattern creates a set of objects that may be reused. When a new object is needed, it is…_en.wikipedia.org](https://en.wikipedia.org/wiki/Object_pool_pattern "https://en.wikipedia.org/wiki/Object_pool_pattern")[](https://en.wikipedia.org/wiki/Object_pool_pattern)

@@ -7,6 +7,8 @@ keywords: "dotnet,aspnetcore,signalr"
 thumbnail: '/img/1__2oXntW9P1OF0zLUAsHe3Mw.png'
 ---
 
+# SignalR Core: Heartbeat and Redis
+
 Realtime applications are hard to design in .NET world, we have SignalR Core which gives us a painless interface for developing such applications. SignalR Core is a very new library, here I will be discussing a problem case which came with the latest versions.
 
 The story come up with a problem that I faced. I have been storing the client information on Redis. My application records client information with `OnConnectedAsync` method and remove it with `OnDisconnectedAsync` method. Moreover, we have an object called \_clientList for inserting and removing clients, and for updating a clients information.
@@ -31,11 +33,11 @@ This seems good enough for cases without a failure. However, we have to consider
 
 **Further note**; the story’s code does not include a Redis implementation.
 
-#### Scenario 1
+## Scenario 1
 
 Redis has crashed and a new connection has establisted. `_clientList.CreateUser` method will also crash. And, we can’t see the new client on the Redis.
 
-#### Scenario 2
+## Scenario 2
 
 Redis was working without problem and then it crashed or some network problem have occurred between server and redis. So, what will happen this in case ?
 
@@ -43,7 +45,7 @@ You guessed it right, the `_clientList.RemoveUser` will fail too. And our reliab
 
 You have to cover these scenarios for better realtime applications. Let’s start.
 
-### Solutions
+## Solutions
 
 **_Scenario 1_** has a basic solution. You can ignore the new connections while Redis is down. Which means, you don’t allow new connections. In order to accomplish this, basically call the `Context.Abort()`
 
@@ -96,7 +98,7 @@ Result
 
 So, now we know latest client ping time. We can loop through the redis and if we didn’t receive a ping at least **5 min**. from a client, we can remove it. The control time should be depend on your **reconnecting** time span settings. Because a re-connection might have happened after a natural disconnection case.
 
-### Conclusion
+## Conclusion
 
 To sum up, we can use the latest ping time in order to deal with many cases. Of course, SignalR Core itself needs more features for edge cases. On the other hand, this solution is not perfect. Depending on the system design, a completely different service approach might be required.
 

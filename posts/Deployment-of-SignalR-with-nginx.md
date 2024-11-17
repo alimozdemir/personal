@@ -7,17 +7,19 @@ keywords: "aspnetcore,signalr,websocket,nginx"
 thumbnail: '/img/1__cNrB6kBkpwQMuPp8rnaXIw.png'
 ---
 
+# Deployment of SignalR with nginx
+
 ![Logos](/img/1__cNrB6kBkpwQMuPp8rnaXIw.png)
 
 At the beginning of the semester, I took software engineering course which has a term project. It requires us to do real-time web application. After discussion with team members, we chose ASP.NET Core with SignalR. While I was writing this story, SignalR is on alpha stage (1.0.0-alpha2). Therefore, it has issues. Such as, the documentation is incomplete, some of the features are under development and there is no information about unit testing or functionality testing etc. Of course, somehow you can achieve those things, no doubt, but you have to work hard. In this story, I will mention about deployment of SignalR with nginx.
 
-#### Problem
+## Problem
 
 Two months after we completed the project with a few shortcomings such as [link](https://twitter.com/almozdmr/status/940992242449309703). Then, we had to deploy the project. I followed [this](https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction?tabs=aspnetcore2x) documentation, app was working but the SignalR part was giving me this error
 
 > Error during WebSocket handshake: Unexpected response code: 204
 
-#### Solution
+## Solution
 
 If we look behind of the problem, it is based on headers of connection.
 
