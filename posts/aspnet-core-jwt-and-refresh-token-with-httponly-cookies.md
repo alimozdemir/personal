@@ -164,6 +164,6 @@ public async Task<IActionResult> Refresh()
 ```
 
 ## Conclusion
-Tokens are not completely safe, but we can increase the security with couple of measures. So  cookies are a very well storage for the tokens. And, refresh token will prevent the user from re-login. You can reach the source code from [Github](https://github.com/lyzerk/medium/tree/master/AuthJWTRefresh).
+Tokens are not completely safe, but we can increase the security with couple of measures. So  cookies are a very well storage for the tokens. And, refresh token will prevent the user from re-login. You can reach the source code from [Github](https://github.com/alimozdemir/medium/tree/master/AuthJWTRefresh).
 
 Have a nice day !

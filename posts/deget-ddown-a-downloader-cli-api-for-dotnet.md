@@ -64,7 +64,7 @@ I think, one of the most useful thing is that CLI downloads the file into curren
 value pos. 0 Required. Link to download
 ```
 
-DDown, API is ready to go, you can easily start with following lines for adding file download feature to your project. And, you can customize your options with DDown.Options class. For more information you can take a look at [github](https://github.com/lyzerk/DDown).
+DDown, API is ready to go, you can easily start with following lines for adding file download feature to your project. And, you can customize your options with DDown.Options class. For more information you can take a look at [github](https://github.com/alimozdemir/DDown).
 
 ```csharp
 using DDown;

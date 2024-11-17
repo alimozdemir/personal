@@ -178,7 +178,7 @@ Object Pool Design Pattern’ı gerçekledik. Bu gerçekleme sırasında hazırl
 
 Değinmek istediğim bir başka nokta ise, bu gerçeklemede havuza boyut verdik ama sizin durumlarınızda bu boyut yerine zaman kısıtlaması kullanabilirsiniz. Örneğin obje 1 dakika kullanılmazsa belleğe geri verilmesi gibi. Veyahut, bu sınırlamaları komple kaldırıp gerektiğinde yeni obje oluşturmasını ya da var olanı yeniden kullanım için vermesini sağlayabilirsiniz. (Kaynaklardaki Microsoft’un örneği bu şekildedir.)
 
-Kaynak kodlarına [buradan](https://github.com/lyzerk/medium/tree/master/DesignPatternObjectPool) ulaşabilirsiniz. Bir sonraki yazıda görüşmek üzere.
+Kaynak kodlarına [buradan](https://github.com/alimozdemir/medium/tree/master/DesignPatternObjectPool) ulaşabilirsiniz. Bir sonraki yazıda görüşmek üzere.
 
 ## Kaynaklar
 

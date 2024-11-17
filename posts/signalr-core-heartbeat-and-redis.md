@@ -103,4 +103,4 @@ So, now we know latest client ping time. We can loop through the redis and if we
 
 To sum up, we can use the latest ping time in order to deal with many cases. Of course, SignalR Core itself needs more features for edge cases. On the other hand, this solution is not perfect. Depending on the system design, a completely different service approach might be required.
 
-You can check the code on [github](https://github.com/lyzerk/medium/tree/master/SignalR/Heartbeat). I have used, the ChatSample from SignalR\_samples repository. And it is just a demo.
+You can check the code on [github](https://github.com/alimozdemir/medium/tree/master/SignalR/Heartbeat). I have used, the ChatSample from SignalR\_samples repository. And it is just a demo.

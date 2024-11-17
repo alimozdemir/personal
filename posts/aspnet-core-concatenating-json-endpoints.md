@@ -197,4 +197,4 @@ I have disabled server garbage collection for the tests. When it is enabled, the
 
 Average request time. First solution: **751 ms**, optimized solution: **707 ms**.
 
-You can reach the source code from [Github](https://github.com/lyzerk/medium/tree/master/StreamSerializeAPI).
+You can reach the source code from [Github](https://github.com/alimozdemir/medium/tree/master/StreamSerializeAPI).

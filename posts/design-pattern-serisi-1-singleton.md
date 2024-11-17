@@ -12,7 +12,7 @@ thumbnail: "/img/1__b1Z3NB5cxQL5preMW4nCiw.png"
 
 Herkese merhaba, öncelikle neden başlıkta ingilizce terimler kullandığıma değinmek istiyorum. Yazılım dünyasında ağırlıklı dilin ingilizce olduğu ve bu tür terimlerin türkçe karşılığı bana çok anlamlı gelmediği için bu şekilde başlık atma gereği duydum. Design Pattern için Tasarım Deseni çevirisi yapılabilir. Belki TDK buna farklı bir isim verirse daha güzel olabilir ancak ben yine de bu tür ünlü terimleri ingilizce bırakarak makale serime devam etmek istiyorum.
 
-Makale serimi C# üzerinde uygulayacağım. Ve .NET Core platformu üzerinden göstereceğim. Burada gerçekleştirilmiş tüm kodlara bu linkten [Github](https://github.com/lyzerk/medium/tree/master/DesignPatternSingleton) ulaşabilirsiniz.
+Makale serimi C# üzerinde uygulayacağım. Ve .NET Core platformu üzerinden göstereceğim. Burada gerçekleştirilmiş tüm kodlara bu linkten [Github](https://github.com/alimozdemir/medium/tree/master/DesignPatternSingleton) ulaşabilirsiniz.
 
 ## Singleton Pattern
 
@@ -113,7 +113,7 @@ Uygulamanın son versiyonu
 
 Bu çözüm ile birlikte ilk kullanım sırasında, gerektiğinde sınıfı oluşturacak ve programın açılış hızında yavaşlama sağlamayacaktır. Yine de bu yaklaşımda her sınıfa göre değişebilir. Siz kendi sınıfınızın amacına ve özelliklerine göre ayrı bir şekilde tasarım yapmanız gerekebilir. Bu yüzden bu tür yaklaşımlarda kurallara uymak yerine kuralları esneterek kendinize göre bir çözüm üretmeniz gerekecektir.
 
-Yukarıdaki kodların tamamlanmış haline [buradan](https://github.com/lyzerk/medium/tree/master/DesignPatternSingleton) erişebilirsiniz. Bir sonraki yazıda görüşmek üzere.
+Yukarıdaki kodların tamamlanmış haline [buradan](https://github.com/alimozdemir/medium/tree/master/DesignPatternSingleton) erişebilirsiniz. Bir sonraki yazıda görüşmek üzere.
 
 ## Kaynaklar
 

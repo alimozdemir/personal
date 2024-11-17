@@ -274,8 +274,8 @@ public void IgnoreWhiteSpacesPipe_Input_VerifyNoNextInvoke()
 
 Bu yapı ile birlikte daha temiz ve düzenli kod yazabilmenin bir yolunu göstermiş olduk. Yukarıdaki kodların proje haline aşağıdan erişebilirsiniz.
 
-[**lyzerk/medium**  
-_Medium's story work repository. Contribute to lyzerk/medium development by creating an account on GitHub._github.com](https://github.com/lyzerk/medium/tree/master/DesignPatternPipeline "https://github.com/lyzerk/medium/tree/master/DesignPatternPipeline")[](https://github.com/lyzerk/medium/tree/master/DesignPatternPipeline)
+[**alimozdemir/medium**  
+_Medium's story work repository. Contribute to alimozdemir/medium development by creating an account on GitHub._github.com](https://github.com/alimozdemir/medium/tree/master/DesignPatternPipeline "https://github.com/alimozdemir/medium/tree/master/DesignPatternPipeline")[](https://github.com/alimozdemir/medium/tree/master/DesignPatternPipeline)
 
 #### Referanslar
 

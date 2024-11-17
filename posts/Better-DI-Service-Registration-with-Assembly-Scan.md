@@ -360,4 +360,4 @@ public void ConfigureServices(IServiceCollection services)
 
 Scrutor has an attribute which works similar to the third solution. However, I could not find the documentation about how to use it. Therefore, I will not include it here.
 
-Thanks for reading, you can reach out the source code from [here](https://github.com/lyzerk/medium/tree/master/DIScan/attrService) !
+Thanks for reading, you can reach out the source code from [here](https://github.com/alimozdemir/medium/tree/master/DIScan/attrService) !

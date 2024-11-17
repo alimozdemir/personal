@@ -122,7 +122,7 @@ static async Task Main(string[] args)
 }
 ```
 
-We are setting the connection string and creating a background server with respect to it. I have set`WorkerCount` as `1` for demonstration, you can use `Environment.ProcessorCount * 5` at production. Also, `BackgroundServerOptions` class has a `Activator`property which allows you to use Dependency Injection with your jobs (e.g. [Example](https://github.com/lyzerk/Triggr/blob/master/src/Triggr.UI/Services/HangfireActivator.cs)).`RunConsoleAsync` will suspend the main thread and prevent the server termination.
+We are setting the connection string and creating a background server with respect to it. I have set`WorkerCount` as `1` for demonstration, you can use `Environment.ProcessorCount * 5` at production. Also, `BackgroundServerOptions` class has a `Activator`property which allows you to use Dependency Injection with your jobs (e.g. [Example](https://github.com/alimozdemir/Triggr/blob/master/src/Triggr.UI/Services/HangfireActivator.cs)).`RunConsoleAsync` will suspend the main thread and prevent the server termination.
 
 Output of the Background Server;
 
@@ -325,8 +325,8 @@ In this post, we have successfully showed how to run multiple Hangfire servers u
 
 You can get the source files below.
 
-[**lyzerk/Hangfire.Docker**  
-_An experimental hangfire docker project with multiple servers (workers) - lyzerk/Hangfire.Docker_github.com](https://github.com/lyzerk/Hangfire.Docker "https://github.com/lyzerk/Hangfire.Docker")[](https://github.com/lyzerk/Hangfire.Docker)
+[**alimozdemir/Hangfire.Docker**  
+_An experimental hangfire docker project with multiple servers (workers) - alimozdemir/Hangfire.Docker_github.com](https://github.com/alimozdemir/Hangfire.Docker "https://github.com/alimozdemir/Hangfire.Docker")[](https://github.com/alimozdemir/Hangfire.Docker)
 
 ## References
 

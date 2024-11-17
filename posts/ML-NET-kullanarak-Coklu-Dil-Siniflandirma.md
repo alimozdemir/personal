@@ -16,7 +16,7 @@ Bu yazımda Microsoft’un makine öğrenmesi kütüphanesi olan ML.NET’i kull
 
 ## Veri kümesinin hazırlanması
 
-Veri kümemizi oluşturmak için Wikipedia sayfalarını kullandım. Bu blog yazısı için python üzerinde [bir script](https://github.com/lyzerk/medium/blob/master/MLNet/MulticlassLanguageClassifier/Data/main.py) dosyası hazırladım. Python üzerinde bulunan [wikipedia kütüphanesi](https://pypi.org/project/wikipedia/) ile istenilen sayfaların içeriğini çekerek bunları test ve eğitim kümesi olarak ayırıyorum. Ben bu makale için üç dil seçtim; Türkçe, İngilizce ve İspanyolca. Bu her üç dil için neredeyse aynı oranda başlık seçmeye çalıştım. Bu script dosyası ile önceden belirlemiş olduğum sayfaların içeriklerini alıp python [nltk](http://www.nltk.org) (natural language toolkit) kütüphanesini kullanarak cümlelere bölüyorum. Ve ardından `1/4` oranında test/eğitim verilerimi ayırıyorum. Eğer veri kümesini genişletmek istersek script dosyamıza yeni makaleler ekleyebiliriz. Örneğin;
+Veri kümemizi oluşturmak için Wikipedia sayfalarını kullandım. Bu blog yazısı için python üzerinde [bir script](https://github.com/alimozdemir/medium/blob/master/MLNet/MulticlassLanguageClassifier/Data/main.py) dosyası hazırladım. Python üzerinde bulunan [wikipedia kütüphanesi](https://pypi.org/project/wikipedia/) ile istenilen sayfaların içeriğini çekerek bunları test ve eğitim kümesi olarak ayırıyorum. Ben bu makale için üç dil seçtim; Türkçe, İngilizce ve İspanyolca. Bu her üç dil için neredeyse aynı oranda başlık seçmeye çalıştım. Bu script dosyası ile önceden belirlemiş olduğum sayfaların içeriklerini alıp python [nltk](http://www.nltk.org) (natural language toolkit) kütüphanesini kullanarak cümlelere bölüyorum. Ve ardından `1/4` oranında test/eğitim verilerimi ayırıyorum. Eğer veri kümesini genişletmek istersek script dosyamıza yeni makaleler ekleyebiliriz. Örneğin;
 
 ```csharp
 titles.append((“Mustafa Kemal Atatürk”, “tr”))  
@@ -164,14 +164,14 @@ Last 116 tweets from 121 are in 'en' class
 Getting [@netflixturkiye](http://twitter.com/netflixturkiye "Twitter profile for @netflixturkiye")'s recent tweets..  
 Last 53 tweets from 56 are in 'tr' class
 
-Sonuçlar istediğimiz türde çıkıyor, büyük bir oranda doğru tahmin edilmiş. [tweet.txt](https://github.com/lyzerk/medium/blob/master/MLNet/MulticlassLanguageClassifier/CSharp/tweet.txt) dosyasından benim makaleyi yazarken ki sonuçlarıma bakabiliriz. Dosyayı incelediğimizde en çok fark İngilizce olanda var, bakıldığında ispanyolca tweetler atıldığını görebiliyoruz. Ayrıca bir kaç kelimeyi de tanıyamadığını gözlemleyebiliyoruz. Bunun için eğitim havuzumuzu genişletmemizde fayda var.
+Sonuçlar istediğimiz türde çıkıyor, büyük bir oranda doğru tahmin edilmiş. [tweet.txt](https://github.com/alimozdemir/medium/blob/master/MLNet/MulticlassLanguageClassifier/CSharp/tweet.txt) dosyasından benim makaleyi yazarken ki sonuçlarıma bakabiliriz. Dosyayı incelediğimizde en çok fark İngilizce olanda var, bakıldığında ispanyolca tweetler atıldığını görebiliyoruz. Ayrıca bir kaç kelimeyi de tanıyamadığını gözlemleyebiliyoruz. Bunun için eğitim havuzumuzu genişletmemizde fayda var.
 
 ## Sonuç
 
 Bu yöntem ile metinleri belirli özniteliklere göre sınıflandırabilirsiniz. Son olarak bu makaledeki kaynak koda aşağıdan ulaşabilirsiniz.
 
-[**lyzerk/medium**  
-_Medium's story work repository. Contribute to lyzerk/medium development by creating an account on GitHub._github.com](https://github.com/lyzerk/medium/tree/master/MLNet/MulticlassLanguageClassifier "https://github.com/lyzerk/medium/tree/master/MLNet/MulticlassLanguageClassifier")[](https://github.com/lyzerk/medium/tree/master/MLNet/MulticlassLanguageClassifier)
+[**alimozdemir/medium**  
+_Medium's story work repository. Contribute to alimozdemir/medium development by creating an account on GitHub._github.com](https://github.com/alimozdemir/medium/tree/master/MLNet/MulticlassLanguageClassifier "https://github.com/alimozdemir/medium/tree/master/MLNet/MulticlassLanguageClassifier")[](https://github.com/alimozdemir/medium/tree/master/MLNet/MulticlassLanguageClassifier)
 
 ## Kaynaklar
 

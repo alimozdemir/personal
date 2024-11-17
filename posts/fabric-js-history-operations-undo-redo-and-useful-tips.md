@@ -161,8 +161,8 @@ I have updated the fabric-history package. `historyInit`function is not necessar
 
 **fabric-history** source code
 
-[**lyzerk/fabric-history**  
-_Basic undo and redo prototype implementation on Fabric.js npm i fabric-history Node projects Or html Initialization of…_github.com](https://github.com/lyzerk/fabric-history "https://github.com/lyzerk/fabric-history")[](https://github.com/lyzerk/fabric-history)
+[**alimozdemir/fabric-history**  
+_Basic undo and redo prototype implementation on Fabric.js npm i fabric-history Node projects Or html Initialization of…_github.com](https://github.com/alimozdemir/fabric-history "https://github.com/alimozdemir/fabric-history")[](https://github.com/alimozdemir/fabric-history)
 
 ## Resources
 

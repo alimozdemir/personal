@@ -32,7 +32,7 @@ The deployment documentation sets the connection header as _keep-alive_. And, We
 
 This configuration solves the problem. Also, our term project github page is shown below.
 
-[**lyzerk/ChannelX**  
-_ChannelX Project for the Software Engineering Course 411E_github.com](https://github.com/lyzerk/ChannelX "https://github.com/lyzerk/ChannelX")[](https://github.com/lyzerk/ChannelX)
+[**alimozdemir/ChannelX**  
+_ChannelX Project for the Software Engineering Course 411E_github.com](https://github.com/alimozdemir/ChannelX "https://github.com/alimozdemir/ChannelX")[](https://github.com/alimozdemir/ChannelX)
 
 Thats all, thanks !
