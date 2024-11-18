@@ -12,8 +12,6 @@ const { Layout } = DefaultTheme;
 
 <template>
   <Layout>
-    <template #nav-bar-title-before>
-    </template>
     <template #doc-top>
       <ArticlesInfo v-if="frontmatter.layout === 'doc'" class="xl:hidden"></ArticlesInfo>
     </template>

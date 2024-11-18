@@ -5,7 +5,7 @@ import PostTitle from './PostTitle.vue';
 const { site, frontmatter } = useData();
 </script>
 <template>
-    <template v-if="frontmatter.layout !== 'home'">
+    <template v-if="frontmatter.layout === 'doc'">
         <ClientOnly>
             <PostTitle></PostTitle>
         </ClientOnly>

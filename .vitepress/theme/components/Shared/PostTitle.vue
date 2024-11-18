@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useData, useRouter } from 'vitepress'
+import { useRouter } from 'vitepress'
 import { onMounted, onUnmounted, ref, watch } from 'vue';
 
 const titleElement = ref()
@@ -21,10 +21,10 @@ onMounted(() => {
 })
 
 const listenScroll = () => {
-    if (titleElement.value) {
-            const rect = titleElement.value.getBoundingClientRect()
-            showPostTitle.value = rect.top < 0
-        }
+    if (window.innerWidth > 960 && titleElement.value) {
+        const rect = titleElement.value.getBoundingClientRect()
+        showPostTitle.value = rect.top < 0
+    }
 }
 
 onUnmounted(() => {
