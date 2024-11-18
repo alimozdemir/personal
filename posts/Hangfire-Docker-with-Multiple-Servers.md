@@ -309,11 +309,11 @@ $ docker-compose up --build
 
 The docker-compose will build all images and run them. Next, you can go to
 
-[http://localhost:5005/hangfire/](http://localhost:5005/hangfire/)
+`http://localhost:5005/hangfire`
 
 ![Hangfire](/img/1__pa__VXV3yrJ3ZMhAgHMbYNw.png)
 
-As you can see here, there are two servers running. Let’s try the job scheduling. Load twice the following endpoint [http://localhost:5005/api/values](http://localhost:5005/api/values) to enqueue new jobs.
+As you can see here, there are two servers running. Let’s try the job scheduling. Load twice the following endpoint `http://localhost:5005/api/values` to enqueue new jobs.
 
 ![Result](/img/1__GTrmN639KG5pCD8WmfU6Cw.png)
 

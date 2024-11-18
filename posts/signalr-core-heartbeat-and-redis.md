@@ -92,7 +92,7 @@ private void Heartbeat()
 
 Call the Heartbeat method on `OnConnectedAsync`. Also, if you want to use a service from DI, You have to request with `context.RequestServices.GetService` . Then, we just update the client’s LatestPing parameter. This property will be updated on Redis.
 
-To verify, the results check the [http://localhost:5000/api/clients](http://localhost:5000/api/clients)
+To verify, the results check the `http://localhost:5000/api/clients`
 
 ![Result](/img/1__2oXntW9P1OF0zLUAsHe3Mw.png)
 Result
