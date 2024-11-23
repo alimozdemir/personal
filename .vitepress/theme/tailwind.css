@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
-.image-center {
+.center-image {
     @apply mx-auto shadow-md rounded-md drop-shadow-md;
+}
+
+.hero-image {
+    @apply mx-auto shadow-md rounded-md drop-shadow-md lg:scale-105 lg:my-10;
 }

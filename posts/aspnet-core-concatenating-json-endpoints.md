@@ -16,7 +16,7 @@ Most commonly faced scenario about API design is you want to serialize a POCO cl
 
 ---
 
-<img src="/img/concatenate/jeff-dewitt-stream.jpg" class="image-center" alt="Photo by Jeff DeWitt on Unsplash" />
+<img src="/img/concatenate/jeff-dewitt-stream.jpg" class="hero-image" alt="Photo by Jeff DeWitt on Unsplash" />
 
 Assume that you have multiple endpoints which returns JSON results and you are trying to concatenate them into a single structure. In that case, you can read the endpoints and allocate them into memory. Then manipulate them according to your wishes.
 
