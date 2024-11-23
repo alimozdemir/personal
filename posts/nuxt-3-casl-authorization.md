@@ -10,22 +10,21 @@ keywords: "nuxt,nuxt3,authorization"
 
 # Nuxt 3: CASL Authorization
 
-> It's been very long time that I couldn't write any blog post due to some other priorities. It feels good to be back.
+> It's been a very long time since I wrote a blog post due to other priorities. It feels good to be back.
 
 <img src="/img/nuxt-casl/nuxt-casl-hero-image-dorian-mongel-unsplash.jpg" class="hero-image" alt="Photo by Jeff DeWitt on Unsplash" />
 
 ## Introduction
 
-Nuxt is a popular web framework that cover a lot of features, although time to time we need some extra plugins/modules or libraries. CASL is one of them, CASL is a agnostic authorization library for Javascript/Typescript. I have been using CASL for more than two years within several projects. In this blog post, I would like to show you how to use CASL in a nuxt project.
+Nuxt is a popular web framework that covers a lot of features. However, from time to time, we need additional plugins, modules, or libraries. CASL is one such library. It is an agnostic authorization library for Javascript/Typescript. I have been using CASL for more than two years across several projects. In this blog post, I will show you how to use CASL in a Nuxt project.
 
-End of the blog we would like to achieve developer friendly, robust and extendable authorization.
-
+By the end of this blog, we aim to achieve a developer-friendly, robust, and extendable authorization system.
 
 ## Installation
 
-I'm assuming that everyone will apply these changes to an existing project, so I will try to explain in that context
+I assume that you will apply these changes to an existing project, so I will explain them in that context.
 
-You have to install following packages to your project.
+You need to install the following packages in your project:
 
 :::code-group
 
@@ -41,22 +40,21 @@ npm install @casl/ability @casl/vue
 
 ## Definitions
 
-First of all, we have to understand how the CASL works. We would like to control the authorization of resources in our project, e.g. 
+First, we need to understand how CASL works. It allows us to control resource authorization in our project. For example:
 
 > [!IMPORTANT]
-> Don't forget to check documentation from CASL itself. [Documentation](https://casl.js.org/v6/en/package/casl-vue)
+> Don't forget to check the official CASL documentation. [Documentation](https://casl.js.org/v6/en/package/casl-vue)
 
-- Can user read this article
-- Can user change this article
+- Can user read the articles?
+- Can user change the articles?
 - Can user `[action]` on `[subject]`
 
-This is the first step to use CASL in your project, by this you would be able to extend all your actions for your all resources.
-
-
+This is the first step in using CASL in your project. By defining these rules, you can extend all your actions across all your resources.
 
 ### Actions
 
-I assume that you have a `types` folder
+Assume you have a `types` folder
+
 
 :::code-group
 
@@ -81,7 +79,6 @@ export type Subjects = 'Account' | 'Profile' | 'Post' | 'Comment';
 
 Now we can define our CASL interfaces
 
-
 :::code-group
 
 ```ts [types/ability.ts]
@@ -99,13 +96,13 @@ export type Permission = [Actions, Subjects];
 
 :::
 
-So by this, we will have strongly typed functions in our app.
+With this, we will have strongly-typed functions in our app.
 
 ## Nuxt Plugin
 
-So far we would be able to configure CASL to use, and right now we will focus on the nuxt integration.
+So far, we've configured CASL. Now, let's focus on Nuxt integration.
 
-To be able to use CASL, we have to use `@casl/vue` package.
+To use CASL, we need the `@casl/vue` package.
 
 :::code-group
 
@@ -139,9 +136,11 @@ export default defineNuxtPlugin(async nuxtApp => {
 
 :::
 
-In the plugin you have to configure your user's abilities. Most of my cases I was parsing JWT token of the user and get all the roles, based on the roles I was configuring abilities. So, this part depends on your `Authentication` approach.
+In the plugin, you configure your user's abilities. In most cases, I parse the user's JWT token to get all roles and configure abilities accordingly. This part depends on your authentication approach.
 
 ## Composable
+
+Next, we create a composable to make using CASL easier throughout the app:
 
 :::code-group
 
@@ -154,23 +153,23 @@ export const useAppAbility = () => useAbility<AppAbility>();
 
 :::
 
-By this we will be able to check user's authorization on typescript.
+This will allow us to check user authorizations in nuxt.
 
 ## `$can` global property
 
-Until now, we're ready to test CASL in an action. If you check the plugin, you can see that the user will have three permission set. And we can see that the user has Post Read permission, so this button will be rendered.
+At this point, we are ready to test CASL in an action. If you check the plugin, you'll see that the user has three permissions defined. For instance, the user has Post Read permission, so the following button will be rendered:
 
 ```html
 <button v-if="$can('Read', 'Post')">View post</button>
 ```
 
-This won't be rendered since the user does not have Write access to the Post.
+This button, however, will not render because the user does not have `Write` access to Post:
 
 ```html
 <button v-if="$can('Write', 'Post')">Edit post</button>
 ```
 
-You might noticed that there is no intellisense for $can function, to be able to have an intellisense. You have to prepare your declaration for typescript. You can use your *.d.ts files to do that, here how you can achieve that.
+You might notice that there is no IntelliSense for the `$can` function. To enable IntelliSense, you can extend your Typescript declarations. Here's how:
 
 :::code-group
 ```ts [index.d.ts]
@@ -187,20 +186,21 @@ export { }
 ```
 :::
 
-Now we can just see that intellisense also works
+Now, intellisense will also work for `$can`:
 
 <img src="/img/nuxt-casl/intellisense.png" class="center-image" alt="Nuxt CASL $can intellisense" />
 
-For the advance cases that you would like to reach more functions from casl you can use `$ability` global variable
+For advanced use cases, you can access more CASL functions through the `$ability` global variable as well
 
 <img src="/img/nuxt-casl/ability-global.png" class="center-image" alt="Nuxt CASL $ability intellisense" />
 
 
 ## Middleware and page protection
 
-So far, so good. We could also extend this logic into nuxt pages. That would give us a good way of handling authorization.
+So far, so good. We can extend this logic to Nuxt pages, providing a structured way to handle authorization.
 
-As everyone knows, in the nuxt we have `definePageMeta` that gives us good way of defining page properties. We could add another parameter there by declaration as well. Although, currently it is not working well. Anyway I will show how to do it.
+In Nuxt, we can use `definePageMeta` to define page properties. We can add a permission property there. Although there’s a known issue with typescript declarations for `definePageMeta`, you can still use it effectively.
+
 
 :::code-group
 ```ts [index.d.ts]
@@ -220,7 +220,7 @@ export { }
 ```
 :::
 
-Even without declartion you can just use `permission` property
+Here's how to extend PageMeta with a `permission` property:
 
 :::code-group
 ```ts [auth.vue]
@@ -235,7 +235,7 @@ definePageMeta({
 ```
 :::
 
-Now we need a middleware to check the permission by abilities.
+Now, create a middleware to check permissions based on abilities:
 
 :::code-group
 ```ts [middleware/guard.global.ts]
@@ -268,10 +268,10 @@ export default defineNuxtRouteMiddleware((to, from) => {
 :::
 
 
-Once you try to access `/auth` page you will endup with following screen, you can customize it based on your needs.
+Now, when trying to access the `/auth` page, unauthorized users will see the following screen. You can customize it as needed:
 
 <img src="/img/nuxt-casl/403.png" class="center-image" alt="Nuxt CASL 403 page" />
 
 ## Source code
 
-You can check out a complete example in my github repo. [nuxt-casl-sample](https://github.com/alimozdemir/nuxt-casl-sample)
+You can check out a complete example in my GitHub repository. [nuxt-casl-sample](https://github.com/alimozdemir/nuxt-casl-sample)
