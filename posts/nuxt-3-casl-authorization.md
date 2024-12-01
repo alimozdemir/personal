@@ -2,7 +2,7 @@
 layout: doc
 title: "Nuxt 3: CASL Authorization"
 description: "Implement authorization in Nuxt 3 using the CASL library. This guide covers configuration, Nuxt plugin setup, and usage examples to create a developer-friendly, robust, and extendable authorization system. Perfect for enhancing security and control in your Nuxt applications."
-date: '2024-11-22T10:00:00.000Z'
+date: '2024-12-01T10:00:00.000Z'
 thumbnail: '/img/nuxt-casl/nuxt-casl-hero-image-dorian-mongel-unsplash.jpg'
 categories: "Nuxt"
 keywords: "nuxt,nuxt3,authorization"
